@@ -3,17 +3,18 @@
 using namespace std;
 
 void sorty(const int n) {
+    int comparisonsCount = 0;
     int* arr = new int[n];
-    for (int i = 0; i < n; i++){
-    arr[i] = rand() % n;
-    cout << arr[i] << "  ";
+    for (int i = 0; i < n; i++) {
+        arr[i] = rand() % n;
+        //cout << arr[i] << "  ";
     }
     cout << endl;
-    cout << "sort:";
+    //cout << "sort:";
     sort(arr, arr + n);
     cout << endl;
     for (int i = 0; i < n; i++) {
-        cout << arr[i] << "  ";
+        //cout << arr[i] << "  ";
     }
     cout << endl;
     cout << "enter key: ";
@@ -24,19 +25,20 @@ void sorty(const int n) {
     int m;
     while (x < p) {
         m = (x + p) / 2;
-        if(arr[m] > key){ 
-            p = m; 
+        if (arr[m] > key) {
+            comparisonsCount++;
+            p = m;
         }
-        else { 
-            x = m + 1; 
+        else {
+            x = m + 1;
         }
     }
     p--;
-    if (arr[p] == key) { 
-        cout << "position: " << p; 
+    if (arr[p] == key) {
+        cout << "position: " << p << endl << "number of comparisons" << comparisonsCount << endl;
     }
-    else { 
-        cout << "not found"; 
+    else {
+        cout << "not found";
     }
 }
 
